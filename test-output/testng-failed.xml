@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <groups>
+      <run>
+        <exclude name="sanity"/>
+      </run>
+    </groups>
     <classes>
       <class name="TestNG.TestNGDataProvider">
         <methods>
-          <include name="loginTest"/>
+          <include name="parametrizationfromTestNGXML"/>
         </methods>
       </class> <!-- TestNG.TestNGDataProvider -->
+      <class name="TestNG.AssertionDemo">
+        <methods>
+          <include name="closeApplication"/>
+          <include name="launchApplication"/>
+          <include name="validateTitleTC"/>
+        </methods>
+      </class> <!-- TestNG.AssertionDemo -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

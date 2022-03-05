@@ -1,6 +1,9 @@
 package TestNG;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class TestNGDataProvider {
@@ -26,6 +29,27 @@ public class TestNGDataProvider {
 		data[2][1] = "manager123";
 		
 		return data;
+	}
+	
+	@Test(dataProvider =  "getNewData")
+	public void TC_with_ApachePOI(Object username, Object password) {
+		System.out.println(username);
+		System.out.println(password);
+	}
+	
+	@DataProvider(name = "getNewData")
+	public Object[][] getDataFromExcel() {
+		String excelPath = "./src/test/resources/Auto (1).xlsx";
+		String sheetName = "data";
+		ExcelReader reader = new ExcelReader(excelPath, sheetName);
+		return reader.getData();
+	}
+	
+	@Test
+	@Parameters({"browser","url"})
+	public void parametrizationfromTestNGXML(String brower, String url) {
+		System.out.println(brower);
+		System.out.println(url);
 	}
 	
 }

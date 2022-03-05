@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="Test">
-    <classes>
-      <class name="TestNG.LoginNewTest"/>
-      <class name="TestNG.AssertionDemo"/>
-      <class name="TestNG.LoginTest"/>
-    </classes>
-  </test> <!-- Test -->
+	<test thread-count="5" name="Test">
+		<parameter name="browser" value="chrome"></parameter>
+		<parameter name="url" value="https://www.google.com"></parameter>
+		<classes>
+			<class name="TestNG.LoginTest" />
+			<class name="TestNG.TestNGDataProvider"></class>
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="Practise">
+		<classes>
+			<class name="TestNG.LoginNewTest" />
+			<class name="TestNG.AssertionDemo" />
+		</classes>
+	</test>
 </suite> <!-- Suite -->
